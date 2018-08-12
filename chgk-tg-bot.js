@@ -158,7 +158,7 @@ function setDatabase(){
 		});
 		if(typeof(resultFs) === 'undefined'){
 			SyncDatabaseTimeout = false; //вернем начальное состояние флагу синхронизации
-			SendLogger("Синхронизация с базой данных выполнена!");
+			//SendLogger("Синхронизация с базой данных выполнена!");
 			return;
 		};
 	} catch (e) {
