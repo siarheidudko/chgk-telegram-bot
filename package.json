@@ -13,7 +13,6 @@
   "author": "Siarhei Dudko",
   "license": "MIT",
   "dependencies": {
-    "cluster": "^0.7.7",
     "cryptojs": "^2.5.3",
     "fs": "0.0.1-security",
     "http": "0.0.0",

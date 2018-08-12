@@ -158,7 +158,7 @@ function setDatabase(){
 		});
 		if(typeof(resultFs) === 'undefined'){
 			SyncDatabaseTimeout = false; //вернем начальное состояние флагу синхронизации
-			//SendLogger("Синхронизация с базой данных выполнена!");
+			console.log("Синхронизация с базой данных выполнена!");
 			return;
 		};
 	} catch (e) {
@@ -272,29 +272,11 @@ function SendLogger(data){
 //функция генерации случайного целого с верхним пределом в data (чистая)
 function RandomGen(data){
 	try{
-		if((typeof(cluster.worker.id) === 'number') && !isNaN(cluster.worker.id)){
-			if(cluster.isMaster){
-				if(data > 3000){
-					var wid = 1000;
-				} else {
-					var wid = 0;
-				}
-			} else if(cluster.isWorker){
-				if((data > 10000) && (cluster.worker.id < 10)){
-					var wid = cluster.worker.id * 1000;
-				} else if((data > 1000) && (cluster.worker.id < 10)) {
-					var wid = cluster.worker.id * 100;
-				} else {
-					var wid = cluster.worker.id;
-				}
-			} else {
-				if(data > 3000){
-					var wid = 1000;
-				} else {
-					var wid = 0;
-				}
-			}
-		}
+		if(data > 3000){
+          var wid = 1000;
+        } else {
+          var wid = 0;
+        }
 		return parseInt(Math.random() * (data - wid) + wid);
 	} catch(err){
 		return 1000;
@@ -554,7 +536,7 @@ var webserverfunc = function(req, res){
 		var req_url = url.parse(req.url);
 		var params_url = new URLSearchParams(req_url.query);
 		var logstring = req.connection.remoteAddress + " | " + req.method + " | " + req.url;
-		SendLogger(logstring);  //пишем в лог запрос
+		console.log(logstring);  //пишем в лог запрос
 		req.setEncoding('utf8'); //задаем принудительно utf-8
 		switch(req.method){
 			case 'POST':
