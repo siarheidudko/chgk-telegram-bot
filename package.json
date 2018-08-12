@@ -1,0 +1,30 @@
+{
+  "name": "chgk-tg-bot",
+  "version": "1.0.0",
+  "description": "Телеграм бот вопросов что где когда",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siarheidudko/iocommander.git"
+  },
+  "author": "Siarhei Dudko",
+  "license": "MIT",
+  "dependencies": {
+    "cluster": "^0.7.7",
+    "cryptojs": "^2.5.3",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "lodash": "^4.17.10",
+    "nodemailer": "^4.6.7",
+    "os": "^0.1.1",
+    "redux": "^4.0.0",
+    "stream": "0.0.2",
+    "url": "^0.11.0",
+    "xml-parser": "^1.2.1",
+    "zlib": "^1.0.5"
+  }
+}
