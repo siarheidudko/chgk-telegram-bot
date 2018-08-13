@@ -424,7 +424,7 @@ function AddQuestion(){
 		for(const chat in ProcessStorage.getState().chats){
 			outgoingMsg(chat, 'Время истекло, правильный ответ:\n'+ProcessStorage.getState().question.answer);
 		}
-		ProcessStorage.dispatch({type:'ADD_ONE_QUESTION'});
+		setTimeout(function(){ProcessStorage.dispatch({type:'ADD_ONE_QUESTION'});}, 1000);
 	}
 }
 
@@ -474,7 +474,7 @@ function incommingMsg(data){
 				for(const chat in ProcessStorage.getState().chats){
 					outgoingMsg(chat, 'Вопрос сброшен пользователем '+answer+', правильный ответ:\n'+ProcessStorage.getState().question.answer);
 				}
-				ProcessStorage.dispatch({type:'ADD_ONE_QUESTION'});
+				setTimeout(function(){ProcessStorage.dispatch({type:'ADD_ONE_QUESTION'});}, 1000);
 				break;
 			case '/start':
 				outgoingMsg(_data.chat.id, 'Добро пожаловать в бота ЧГК. На повестке дня вопрос:\n'+ProcessStorage.getState().question.question);
@@ -501,7 +501,7 @@ function incommingMsg(data){
 					for(const chat in ProcessStorage.getState().chats){
 						outgoingMsg(chat, answer);
 					}
-					ProcessStorage.dispatch({type:'ANSWERED_ONE_QUESTION'});
+					setTimeout(function(){ProcessStorage.dispatch({type:'ANSWERED_ONE_QUESTION'});}, 500);
 				} else if(_temp !== 0) {
 					outgoingMsg(_data.chat.id, answer, _data.message_id);
 				}
